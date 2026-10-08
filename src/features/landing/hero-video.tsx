@@ -15,14 +15,36 @@ export function HeroVideo({ src, poster }: HeroVideoProps) {
     const video = videoRef.current;
     if (!video) return;
     const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const syncPreference = () => {
-      if (preference.matches) video.pause();
-      else void video.play().catch(() => setPlaying(false));
+    const mobileViewport = window.matchMedia("(max-width: 620px)");
+    const syncPlayback = () => {
+      if (mobileViewport.matches) {
+        video.pause();
+        video.removeAttribute("src");
+        video.load();
+        setPlaying(false);
+        return;
+      }
+
+      if (!video.hasAttribute("src")) {
+        video.src = video.dataset.src ?? src;
+        video.load();
+      }
+
+      if (preference.matches) {
+        video.pause();
+        setPlaying(false);
+      } else {
+        void video.play().catch(() => setPlaying(false));
+      }
     };
-    syncPreference();
-    preference.addEventListener("change", syncPreference);
-    return () => preference.removeEventListener("change", syncPreference);
-  }, []);
+    syncPlayback();
+    preference.addEventListener("change", syncPlayback);
+    mobileViewport.addEventListener("change", syncPlayback);
+    return () => {
+      preference.removeEventListener("change", syncPlayback);
+      mobileViewport.removeEventListener("change", syncPlayback);
+    };
+  }, [src]);
 
   function togglePlayback() {
     const video = videoRef.current;
@@ -38,12 +60,12 @@ export function HeroVideo({ src, poster }: HeroVideoProps) {
         id="hero-video"
         aria-hidden="true"
         className="hero-image"
-        src={src}
+        data-src={src}
         poster={poster}
         muted
         loop
         playsInline
-        preload="metadata"
+        preload="none"
         onPlay={() => setPlaying(true)}
         onPause={() => setPlaying(false)}
       />

@@ -989,7 +989,11 @@ img {
 
 @media (max-width: 620px) {
   .hero-image {
-    object-position: 59% center;
+    display: none;
+  }
+
+  .hero-video-toggle {
+    display: none;
   }
 
   .hero-shade {
@@ -1697,4 +1701,12 @@ img {
 }
 @media (min-width: 621px) {
   .factory-label { font-size: 11px; }
+}
+
+@media (max-width: 620px) {
+  .hero {
+    background-image: url("/images/hero.jpg");
+    background-position: 59% center;
+    background-size: cover;
+  }
 }
