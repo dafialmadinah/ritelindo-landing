@@ -20,6 +20,7 @@ function readSiteUrl(value: string | undefined): string | undefined {
 }
 const url = readSiteUrl(process.env.NEXT_PUBLIC_SITE_URL);
 const indexable = process.env.SITE_INDEXABLE === "true";
+const demoWhatsAppNumber = "12025550100";
 if (indexable && !url)
   throw new Error(
     "SITE_INDEXABLE=true memerlukan NEXT_PUBLIC_SITE_URL aktual.",
@@ -31,5 +32,6 @@ export const site = {
     "Pabrik rak minimarket untuk paket setup toko retail, rak satuan, dan proyek cabang. Konsultasi & layout 3D gratis, harga kompetitif, serta ongkir Jawa–Bali.",
   url,
   indexable,
-  whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "",
+  // Keep demo deployments' WhatsApp CTAs visible without routing to a real person.
+  whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || demoWhatsAppNumber,
 } as const;

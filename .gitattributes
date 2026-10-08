@@ -144,3 +144,9 @@
 *.stl                filter=lfs diff=lfs merge=lfs -text
 *.nc                 filter=lfs diff=lfs merge=lfs -text
 *.mat                filter=lfs diff=lfs merge=lfs -text
+
+# These assets are served directly by Next.js and must be present in a Vercel
+source checkout without requiring Git LFS downloads.
+public/images/*.jpg -filter -diff -merge -text
+public/videos/*.mp4 -filter -diff -merge -text
+src/app/fonts/*.woff2 -filter -diff -merge -text
