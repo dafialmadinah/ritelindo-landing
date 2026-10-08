@@ -12,7 +12,7 @@ export function HeroSection() {
         <p className="eyebrow eyebrow--light">Rak & interior retail</p>
         <p className="factory-label">
           <span><span aria-hidden="true">• </span>Produk langsung dari pabrik</span>
-          <span><span aria-hidden="true">• </span>Harga kompetitif</span>
+          <span><span aria-hidden="true">• </span>Harga Terjangkau</span>
         </p>
         <h1 id="hero-heading">
           Paket Rak Minimarket & Rak Toko Sesuai Ruangan Anda
@@ -20,7 +20,7 @@ export function HeroSection() {
         <div className="hero-bottom">
           <div className="hero-support">
             <p>
-              Rak langsung dari pabrik dengan harga kompetitif. Mulai dengan
+              Rak langsung dari pabrik dengan harga terjangkau. Mulai dengan
               konsultasi dan layout 3D gratis, lalu sesuaikan rak dengan
               kebutuhan serta ukuran ruangan toko.
             </p>

@@ -13,7 +13,7 @@ export function ProcessSection() {
       <div className="process-list">
         {steps.map((step, index) => (
           <article key={step.id}>
-            <span>0{index + 1}</span>
+            <span className="process-step-number">{index + 1}</span>
             <h3>{step.title}</h3>
             <p>{step.text}</p>
           </article>

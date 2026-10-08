@@ -1,4 +1,5 @@
 import { faqs } from "@/features/landing/data/content";
+import { FaqAccordionItem } from "@/features/landing/faq-accordion-item";
 
 export function FaqSection() {
   return (
@@ -12,15 +13,13 @@ export function FaqSection() {
       </div>
       <div className="faq-list">
         {faqs.map((faq, index) => (
-          <details className="faq-item" key={faq.id} open={index === 0}>
-            <summary>
-              <span>{faq.question}</span>
-              <span className="faq-symbol" aria-hidden="true" />
-            </summary>
-            <div className="faq-answer">
-              <p>{faq.answer}</p>
-            </div>
-          </details>
+          <FaqAccordionItem
+            key={faq.id}
+            id={faq.id}
+            question={faq.question}
+            answer={faq.answer}
+            initiallyExpanded={index === 0}
+          />
         ))}
       </div>
     </section>
