@@ -13,7 +13,9 @@ export function IntroSection() {
         <p>
           Untuk pembukaan toko baru maupun modernisasi toko yang sudah berjalan,
           pilihan rak dapat disesuaikan dengan ruang dan cara produk
-          ditampilkan.
+          ditampilkan. Solusi ini melayani minimarket, toko kelontong/sembako,
+          ATK, pet shop, baby shop, apotek, toko bahan kue, toko fashion, hingga
+          toko bahan bangunan.
         </p>
       </div>
     </section>
