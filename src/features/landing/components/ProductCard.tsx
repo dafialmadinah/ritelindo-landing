@@ -1,6 +1,6 @@
 import Image from "next/image";
 import type { Product } from "@/features/landing/types";
-import { WhatsAppCta } from "@/features/consultation/whatsapp-cta";
+import { WhatsAppCta } from "@/features/consultation/components/WhatsAppCta";
 export function ProductCard({ product }: { product: Product }) {
   return (
     <article className={`product product--${product.variant}`}>

@@ -1,7 +1,7 @@
-import { getConsultationContent } from "@/features/consultation/consultation-content";
-import { buildWhatsAppUrl } from "@/features/consultation/whatsapp-url";
+import { getConsultationContent } from "@/features/consultation/data/consultation-content";
+import { buildWhatsAppUrl } from "@/features/consultation/utils/whatsapp-url";
 import { site } from "@/shared/config/site";
-import { Wordmark } from "@/shared/ui/wordmark";
+import { Wordmark } from "@/shared/components/Wordmark";
 
 const footerLinks = [
   { href: "#produk", label: "Paket Rak Minimarket" },

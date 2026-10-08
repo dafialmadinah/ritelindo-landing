@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { getConsultationContent } from "../src/features/consultation/consultation-content.ts";
-import { buildWhatsAppUrl } from "../src/features/consultation/whatsapp-url.ts";
+import { getConsultationContent } from "../src/features/consultation/data/consultation-content.ts";
+import { buildWhatsAppUrl } from "../src/features/consultation/utils/whatsapp-url.ts";
 
 test("each consultation entry point carries a distinct relevant message", () => {
   const sources = ["hero", "layout", "closing", "header", "floating"] as const;

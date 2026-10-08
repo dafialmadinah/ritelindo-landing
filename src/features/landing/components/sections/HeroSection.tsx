@@ -1,6 +1,6 @@
 import { heroVideo, images } from "@/features/landing/data/media";
-import { HeroVideo } from "@/features/landing/hero-video";
-import { WhatsAppCta } from "@/features/consultation/whatsapp-cta";
+import { HeroVideo } from "@/features/landing/components/HeroVideo";
+import { WhatsAppCta } from "@/features/consultation/components/WhatsAppCta";
 
 export function HeroSection() {
   return (

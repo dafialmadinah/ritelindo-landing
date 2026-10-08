@@ -14,10 +14,10 @@ Versi Node.js dan npm mengikuti `.mise.toml`; rentang yang diterima tercantum di
 
 ## Fitur
 
-- Landing page responsif dengan video hero, poster, dan gambar produk lokal.
+- Landing page responsif dengan video hero pada desktop, gambar minimarket pada mobile, dan aset produk lokal.
 - CTA WhatsApp membentuk pesan sesuai konteks tombol. Jika nomor belum diatur, CTA tampil nonaktif dan tombol mengambang tidak ditampilkan.
 - Navbar dengan menu mobile dan perilaku tampil/sembunyi saat halaman di-scroll.
-- FAQ menggunakan elemen HTML native `<details>` dan `<summary>`.
+- FAQ menggunakan accordion aksesibel dengan jawaban yang tersedia di HTML hasil render.
 - Metadata SEO dan Open Graph dari Next.js Metadata API.
 - Konfigurasi robots, sitemap, dan canonical URL mengikuti variabel lingkungan.
 
@@ -74,12 +74,19 @@ npm run start      # Jalankan build produksi
 
 ```text
 src/
-├── app/                  # Layout, halaman, CSS global, ikon, robots, sitemap
+├── app/                  # Routing tipis, root layout, CSS global, metadata routes
 ├── features/
-│   ├── consultation/     # CTA WhatsApp, konten pesan, dan URL
-│   └── landing/          # Komposisi halaman, section, konten, dan media
-├── lib/seo/              # Konfigurasi metadata
-└── shared/               # Navigasi, header/footer, ikon, dan konfigurasi situs
+│   ├── consultation/
+│   │   ├── components/   # CTA WhatsApp dan tombol mengambang
+│   │   ├── data/         # Copy pesan konsultasi
+│   │   ├── types/        # Tipe intent dan props CTA
+│   │   └── utils/        # Pembentuk URL WhatsApp
+│   └── landing/
+│       ├── components/   # Komposer, section, navbar, dan footer landing
+│       ├── data/         # Konten, media, dan navigasi landing
+│       └── types/        # Tipe konten landing
+├── lib/seo/              # Builder metadata server
+└── shared/               # Wordmark, ikon, dan konfigurasi situs lintas fitur
 public/
 ├── images/               # Gambar lokal untuk landing page
 └── videos/               # Video hero

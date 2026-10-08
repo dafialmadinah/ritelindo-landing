@@ -1,9 +1,9 @@
 import { site } from "@/shared/config/site";
-import { ArrowIcon } from "@/shared/icons/arrow-icon";
-import { WhatsAppIcon } from "@/shared/icons/whatsapp-icon";
-import { buildWhatsAppUrl } from "@/features/consultation/whatsapp-url";
+import { ArrowIcon } from "@/shared/icons/ArrowIcon";
+import { WhatsAppIcon } from "@/shared/icons/WhatsAppIcon";
+import { buildWhatsAppUrl } from "@/features/consultation/utils/whatsapp-url";
 import type { WhatsAppCtaProps } from "@/features/consultation/types";
-import { getConsultationContent } from "@/features/consultation/consultation-content";
+import { getConsultationContent } from "@/features/consultation/data/consultation-content";
 
 const heroButtonClassName =
   "relative block min-h-[52px] w-full overflow-hidden rounded-md p-[2px] shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-lg motion-reduce:transition-none";

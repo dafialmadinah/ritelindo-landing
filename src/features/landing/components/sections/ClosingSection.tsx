@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { images } from "@/features/landing/data/media";
-import { WhatsAppCta } from "@/features/consultation/whatsapp-cta";
+import { WhatsAppCta } from "@/features/consultation/components/WhatsAppCta";
 
 export function ClosingSection() {
   return (

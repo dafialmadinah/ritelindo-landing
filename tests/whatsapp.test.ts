@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { buildWhatsAppUrl } from "../src/features/consultation/whatsapp-url.ts";
+import { buildWhatsAppUrl } from "../src/features/consultation/utils/whatsapp-url.ts";
 test("encodes message, including punctuation, Unicode and line breaks", () => {
   const text = "Halo & layout 3D?\nUkuran 6 × 12 m";
   const url = new URL(buildWhatsAppUrl("6281234567890", text));

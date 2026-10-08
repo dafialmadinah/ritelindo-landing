@@ -1,8 +1,8 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import type { ReactNode } from "react";
-import { navigation } from "@/shared/config/navigation";
-import { Wordmark } from "@/shared/ui/wordmark";
+import { navigation } from "@/features/landing/data/navigation";
+import { Wordmark } from "@/shared/components/Wordmark";
 interface SmartNavbarProps {
   desktopCta: ReactNode;
   mobileCta: ReactNode;

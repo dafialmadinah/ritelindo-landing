@@ -1,4 +1,4 @@
-import { ProductCard } from "@/features/landing/product-card";
+import { ProductCard } from "@/features/landing/components/ProductCard";
 import { products } from "@/features/landing/data/content";
 
 export function ProductsSection() {

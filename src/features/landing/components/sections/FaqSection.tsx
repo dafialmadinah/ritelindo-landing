@@ -1,5 +1,5 @@
 import { faqs } from "@/features/landing/data/content";
-import { FaqAccordionItem } from "@/features/landing/faq-accordion-item";
+import { FaqAccordionItem } from "@/features/landing/components/FaqAccordionItem";
 
 export function FaqSection() {
   return (
