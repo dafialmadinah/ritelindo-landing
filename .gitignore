@@ -1,0 +1,13 @@
+node_modules/
+.next/
+.pnpm-store/
+.env*
+!.env.example
+*.tsbuildinfo
+*-debug.log*
+logs/
+*.log
+
+# Local agent state
+/.plugins/
+/.opencode-skills/
