@@ -214,6 +214,22 @@ img {
     linear-gradient(90deg, rgba(3, 10, 24, 0.38), transparent 62%);
 }
 
+.hero-nav-gradient {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 8rem;
+  background: linear-gradient(
+    to bottom,
+    rgb(0 0 0 / 70%),
+    rgb(0 0 0 / 30%) 55%,
+    transparent
+  );
+  pointer-events: none;
+}
+
 .eyebrow {
   margin: 0 0 24px;
   font-size: 11px;

@@ -7,6 +7,7 @@ export function HeroSection() {
     <section className="hero" id="hero" aria-labelledby="hero-heading">
       <HeroVideo src={heroVideo} poster={images.hero} />
       <div className="hero-shade" />
+      <div className="hero-nav-gradient" aria-hidden="true" />
       <div className="hero-content">
         <p className="eyebrow eyebrow--light">Rak & interior retail</p>
         <p className="factory-label">
