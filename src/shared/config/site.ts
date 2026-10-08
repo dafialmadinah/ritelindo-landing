@@ -18,12 +18,25 @@ function readSiteUrl(value: string | undefined): string | undefined {
     );
   }
 }
-const url = readSiteUrl(process.env.NEXT_PUBLIC_SITE_URL);
-const indexable = process.env.SITE_INDEXABLE === "true";
+const vercelProductionOrigin =
+  process.env.VERCEL_PROJECT_PRODUCTION_URL &&
+  `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+const deployedProductionOrigin =
+  vercelProductionOrigin ||
+  (process.env.VERCEL_ENV === "production"
+    ? "https://ritelindo-landing-peach.vercel.app"
+    : undefined);
+const url = readSiteUrl(
+  process.env.NEXT_PUBLIC_SITE_URL || deployedProductionOrigin,
+);
+const indexable =
+  process.env.SITE_INDEXABLE === "true" ||
+  (process.env.SITE_INDEXABLE !== "false" &&
+    process.env.VERCEL_ENV === "production");
 const demoWhatsAppNumber = "12025550100";
 if (indexable && !url)
   throw new Error(
-    "SITE_INDEXABLE=true memerlukan NEXT_PUBLIC_SITE_URL aktual.",
+    "Situs yang diindeks memerlukan NEXT_PUBLIC_SITE_URL atau domain produksi Vercel.",
   );
 export const site = {
   name: "Ritelindo Group",

@@ -19,7 +19,7 @@ Versi Node.js dan npm mengikuti `.mise.toml`; rentang yang diterima tercantum di
 - Navbar dengan menu mobile dan perilaku tampil/sembunyi saat halaman di-scroll.
 - FAQ menggunakan accordion aksesibel dengan jawaban yang tersedia di HTML hasil render.
 - Metadata SEO dan Open Graph dari Next.js Metadata API.
-- Konfigurasi robots, sitemap, dan canonical URL mengikuti variabel lingkungan.
+- Robots, sitemap, dan canonical mengikuti konfigurasi domain; indeks aktif otomatis hanya pada deployment Production Vercel.
 
 ## Menjalankan secara lokal
 
@@ -50,12 +50,12 @@ Semua variabel bersifat opsional untuk menjalankan server lokal. `.env.example` 
 | Variabel | Fungsi | Wajib? | Nilai contoh |
 | --- | --- | --- | --- |
 | `NEXT_PUBLIC_WHATSAPP_NUMBER` | Nomor tujuan tautan WhatsApp dalam digit internasional, tanpa `+`, spasi, atau tanda hubung. Jika kosong, situs memakai nomor demonstrasi nonaktif agar CTA tetap terlihat. | Opsional untuk demo; wajib diisi dengan nomor resmi agar kontak berfungsi | `12025550100` (nomor fiktif untuk demonstrasi) |
-| `NEXT_PUBLIC_SITE_URL` | Origin situs untuk canonical dan URL absolut Open Graph. Gunakan origin saja, tanpa path, query, atau hash. | Opsional; diperlukan jika pengindeksan diaktifkan | `https://domain-anda.example` |
-| `SITE_INDEXABLE` | Mengatur metadata robots serta akses crawler dan sitemap. Nilai default dari `.env.example` adalah `false`. Jika `true`, situs mengizinkan indeks dan sitemap serta mensyaratkan `NEXT_PUBLIC_SITE_URL` yang valid. | Opsional | `false` |
+| `NEXT_PUBLIC_SITE_URL` | Origin situs untuk canonical dan URL absolut Open Graph. Gunakan origin saja, tanpa path, query, atau hash. Vercel Production memakai domain produksi Vercel jika variabel ini kosong. | Opsional; isi jika memakai domain sendiri | `https://ritelindo-landing-peach.vercel.app` |
+| `SITE_INDEXABLE` | Mengatur metadata robots serta akses crawler dan sitemap. `.env.example` memakai `false` untuk lokal. Vercel Production otomatis mengaktifkan indeks bila variabel ini tidak disetel; nilai `false` tetap menonaktifkannya. Di luar Vercel, nilai `true` memerlukan URL situs yang valid. | Opsional | `false` |
 
-> Nomor `12025550100` adalah nomor fiktif untuk demonstrasi, bukan nomor resmi Ritelindo Group. Ganti dengan nomor WhatsApp resmi sebelum digunakan untuk menerima kontak. Nilai domain di tabel juga merupakan placeholder.
+> Nomor `12025550100` adalah nomor fiktif untuk demonstrasi, bukan nomor resmi Ritelindo Group. Ganti dengan nomor WhatsApp resmi sebelum digunakan untuk menerima kontak. Domain pada contoh adalah alamat deployment yang sedang digunakan; ganti canonical melalui `NEXT_PUBLIC_SITE_URL` jika beralih ke domain sendiri.
 
-Saat `SITE_INDEXABLE=false`, metadata meminta mesin pencari untuk tidak mengindeks halaman, `robots.txt` melarang crawler, dan sitemap kosong. Saat bernilai `true`, robots mengizinkan crawler dan mencantumkan sitemap; sitemap berisi URL situs. Canonical dan URL absolut Open Graph hanya tersedia jika `NEXT_PUBLIC_SITE_URL` diisi.
+Di lokal dan Preview, situs default `noindex`. Pada Production Vercel, indeks aktif otomatis kecuali `SITE_INDEXABLE=false`; domain produksi Vercel digunakan sebagai canonical jika `NEXT_PUBLIC_SITE_URL` kosong. `NEXT_PUBLIC_SITE_URL` dapat diisi dengan origin domain khusus. Saat indeks aktif, robots mengizinkan crawler dan sitemap memuat URL canonical. Setelah mengubah environment di Vercel, buat deployment baru agar perubahan diterapkan.
 
 ## Perintah proyek
 
@@ -102,4 +102,4 @@ npm run build
 npm run start
 ```
 
-Untuk deployment dengan runtime Node.js, gunakan Node 24.x dan jalankan `npm ci` sebelum `npm run build`. Tambahkan variabel lingkungan yang diperlukan pada konfigurasi environment platform. Atur `NEXT_PUBLIC_SITE_URL` ke origin domain deployment jika canonical dan metadata Open Graph absolut diperlukan. Aktifkan `SITE_INDEXABLE=true` hanya ketika deployment siap diindeks; nilai ini memerlukan URL situs yang valid. Jalankan aplikasi menggunakan `npm run start` atau integrasi Next.js yang disediakan platform.
+Untuk deployment dengan runtime Node.js, gunakan Node 24.x dan jalankan `npm ci` sebelum `npm run build`. Pada Vercel Production, indeks aktif otomatis dan domain produksi Vercel menjadi canonical. Jika memakai domain khusus, set `NEXT_PUBLIC_SITE_URL` ke origin domain tersebut pada environment Production. Set `SITE_INDEXABLE=false` jika deployment produksi belum boleh masuk indeks. Jalankan aplikasi menggunakan `npm run start` atau integrasi Next.js yang disediakan platform.
