@@ -1328,6 +1328,34 @@ img {
   visibility: visible;
   transform: translateY(0);
   pointer-events: auto;
+  animation: floating-whatsapp-pop-ring 900ms ease-out both;
+}
+@keyframes floating-whatsapp-pop-ring {
+  0% {
+    opacity: 0;
+    transform: scale(0.45) rotate(0);
+  }
+  42% {
+    opacity: 1;
+    transform: scale(1.08) rotate(0);
+  }
+  48% {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+  56%,
+  72%,
+  88% {
+    transform: scale(1) rotate(-7deg);
+  }
+  64%,
+  80%,
+  96% {
+    transform: scale(1) rotate(7deg);
+  }
+  100% {
+    transform: scale(1) rotate(0);
+  }
 }
 @media (min-width: 621px) {
   .button-link {
@@ -1375,6 +1403,9 @@ img {
   .floating-whatsapp {
     transition: none;
     transform: none;
+  }
+  .floating-whatsapp[data-visible="true"] {
+    animation: none;
   }
 }
 
